@@ -3,27 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexar Network (NXR)</title>
+<title>Net Network (NXR)</title>
 
 <style>
 
-/* ===================== GLOBAL ===================== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
-body{
-background:#050505;
-color:#fff;
-overflow-x:hidden;
+/* ================= ROOT THEMES ================= */
+:root{
+--bg:#050505;
+--card:rgba(255,255,255,0.05);
+--text:#ffffff;
+--gold:#d4af37;
 }
 
-/* ===================== GOLD BACKGROUND ===================== */
+body.light{
+--bg:#f5f5f5;
+--card:#ffffff;
+--text:#111;
+--gold:#b8891a;
+}
+
+body{
+margin:0;
+font-family:Arial;
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
+}
+
+/* ================= BACKGROUND ================= */
 .bg{
 position:fixed;
 width:100%;
 height:100%;
-background:radial-gradient(circle at top,#111,#050505);
+background:radial-gradient(circle at top,#111,#000);
 z-index:-1;
 }
 
+/* floating gold particles */
 .bg::before{
 content:"";
 position:absolute;
@@ -39,13 +55,13 @@ from{transform:translateY(0);}
 to{transform:translateY(-200px);}
 }
 
-/* ===================== HEADER ===================== */
+/* ================= HEADER ================= */
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 8%;
-background:rgba(0,0,0,0.6);
+background:var(--card);
 backdrop-filter:blur(10px);
 position:sticky;
 top:0;
@@ -53,98 +69,84 @@ border-bottom:1px solid rgba(212,175,55,0.2);
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:20px;
 font-weight:bold;
-color:#d4af37;
+color:var(--gold);
+font-size:20px;
 }
 
-nav a{
-color:#fff;
-margin:0 10px;
-font-size:14px;
-opacity:0.8;
-cursor:pointer;
-text-decoration:none;
-}
-
-nav a:hover{opacity:1;}
-
-/* ===================== HERO ===================== */
-.hero{
-text-align:center;
-padding:120px 20px;
-animation:fade 1s ease;
-}
-
-.hero h1{
-font-size:60px;
-}
-
-.hero span{color:#d4af37;}
-
-.hero p{
-opacity:0.8;
-margin-top:10px;
-}
-
+/* ================= BUTTONS ================= */
 .btn{
 display:inline-block;
-padding:12px 20px;
-margin:10px;
+padding:10px 18px;
+margin:5px;
 border-radius:10px;
-background:#d4af37;
+background:var(--gold);
 color:black;
 font-weight:bold;
 text-decoration:none;
 transition:0.3s;
 }
 
-.btn:hover{transform:scale(1.05);}
+.btn:hover{
+transform:scale(1.05);
+}
 
-/* ===================== SECTIONS ===================== */
+/* ================= SECTIONS ================= */
 .section{
-padding:80px 10%;
-animation:fade 1s ease;
+padding:70px 10%;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
+background:var(--card);
 padding:20px;
 border-radius:12px;
 margin:10px 0;
 border:1px solid rgba(212,175,55,0.2);
 }
 
-/* ===================== GRID ===================== */
+/* ================= GRID ================= */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:15px;
 }
 
-/* ===================== LIVE PRICE ===================== */
-.priceBox{
+/* ================= HERO ================= */
+.hero{
 text-align:center;
-padding:25px;
-background:rgba(212,175,55,0.08);
-border:1px solid rgba(212,175,55,0.3);
+padding:110px 20px;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.hero span{color:var(--gold);}
+
+/* ================= PRICE ================= */
+.price{
+text-align:center;
+padding:20px;
+background:var(--card);
+border:1px solid rgba(212,175,55,0.2);
 border-radius:12px;
 }
 
-/* ===================== FOOTER ===================== */
-footer{
-text-align:center;
-padding:40px;
-border-top:1px solid rgba(212,175,55,0.2);
+/* ================= TOGGLE ================= */
+.toggle{
+cursor:pointer;
+padding:8px 12px;
+border:1px solid var(--gold);
+border-radius:8px;
+background:none;
+color:var(--text);
 }
 
-/* ===================== ANIMATION ===================== */
-@keyframes fade{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
+/* ================= FOOTER ================= */
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(212,175,55,0.2);
 }
 
 </style>
@@ -156,28 +158,27 @@ to{opacity:1;transform:translateY(0);}
 
 <header>
 
-<div class="logo">
-NEXAR <span style="color:#fff;font-weight:normal;">NETWORK</span>
-</div>
+<div class="logo">NET NETWORK (NXR)</div>
 
-<nav>
-<a onclick="scrollTo('about')">About</a>
-<a onclick="scrollTo('token')">Tokenomics</a>
-<a onclick="scrollTo('road')">Roadmap</a>
-<a onclick="scrollTo('white')">Whitepaper</a>
-</nav>
+<div>
+<button class="toggle" onclick="toggleTheme()">Dark / Light</button>
+</div>
 
 </header>
 
 <!-- HERO -->
 <section class="hero">
 
-<h1>NEXAR <span>NXR</span></h1>
-<p>Empowering the Future of Digital Payments</p>
+<h1>NET <span>NETWORK</span></h1>
+<p>Next Generation Web3 Digital Ecosystem</p>
 
-<a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">Buy NXR</a>
+<a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">
+BUY NXR (DEX)
+</a>
 
-<a class="btn" href="https://bscscan.com/address/0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">BSCScan</a>
+<a class="btn" href="https://bscscan.com/address/0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">
+BSCScan
+</a>
 
 <a class="btn" onclick="copy()">Copy Contract</a>
 
@@ -192,26 +193,31 @@ NEXAR <span style="color:#fff;font-weight:normal;">NETWORK</span>
 
 <h2 style="text-align:center;">Live Price</h2>
 
-<div class="priceBox">
-<h1 id="price">$0.0000</h1>
-<p>Mock Live Data (API can be added later)</p>
+<div class="price">
+<h1 id="price">$0.00000</h1>
+<p>Real-time simulation (API ready)</p>
 </div>
 
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- DASHBOARD -->
+<section class="section">
 
-<h2>About Nexar</h2>
+<h2>Market Dashboard</h2>
 
-<div class="card">
-Nexar Network is a decentralized blockchain payment ecosystem built on BNB Smart Chain focused on scalability, speed, and global adoption.
+<div class="grid">
+
+<div class="card">Network: BNB Smart Chain</div>
+<div class="card">Symbol: NXR</div>
+<div class="card">Max Supply: 500,000,000</div>
+<div class="card">Status: Active</div>
+
 </div>
 
 </section>
 
 <!-- TOKENOMICS -->
-<section class="section" id="token">
+<section class="section">
 
 <h2>Tokenomics</h2>
 
@@ -228,7 +234,7 @@ Nexar Network is a decentralized blockchain payment ecosystem built on BNB Smart
 </section>
 
 <!-- ROADMAP -->
-<section class="section" id="road">
+<section class="section">
 
 <h2>Roadmap</h2>
 
@@ -236,42 +242,32 @@ Nexar Network is a decentralized blockchain payment ecosystem built on BNB Smart
 <div class="card">Phase II — Branding</div>
 <div class="card">Phase III — Listings</div>
 <div class="card">Phase IV — Expansion</div>
-<div class="card">Phase V — Global Ecosystem</div>
+<div class="card">Phase V — Global Adoption</div>
 
 </section>
 
-<!-- WHITEPAPER -->
-<section class="section" id="white">
-
-<h2>Whitepaper Summary</h2>
-
-<div class="card">
-Nexar aims to build a secure, scalable, and decentralized digital payment ecosystem on BNB Chain with low fees and global accessibility.
-</div>
-
-</section>
-
+<!-- FOOTER -->
 <footer>
-© 2026 Nexar Network | Black & Gold Web3 Ecosystem
+NET NETWORK (NXR) © 2026
 </footer>
 
 <script>
 
-/* COPY CONTRACT */
+/* COPY */
 function copy(){
 navigator.clipboard.writeText("0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4");
-alert("Contract Copied!");
+alert("Copied!");
 }
 
-/* SCROLL */
-function scrollTo(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
+/* THEME TOGGLE */
+function toggleTheme(){
+document.body.classList.toggle("light");
 }
 
-/* MOCK LIVE PRICE */
+/* LIVE PRICE SIM */
 setInterval(()=>{
-let price = (Math.random()*0.0009).toFixed(6);
-document.getElementById("price").innerText = "$"+price;
+let p=(Math.random()*0.001).toFixed(6);
+document.getElementById("price").innerText="$"+p;
 },2000);
 
 </script>
