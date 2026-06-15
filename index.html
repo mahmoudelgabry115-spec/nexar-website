@@ -3,52 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexar Network</title>
+<title>Nexer Network</title>
 
 <style>
 body{
 margin:0;
 font-family:Arial;
-background:#050506;
+background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
 
-/* BACKGROUND */
+/* ================= BACKGROUND ================= */
 .bg{
 position:fixed;
 width:100%;
 height:100%;
 z-index:-2;
-background:radial-gradient(circle at top,#111,#050506);
+background:radial-gradient(circle at top,#111,#050505);
 }
 
 .glow{
 position:absolute;
-width:450px;
-height:450px;
+width:500px;
+height:500px;
 border-radius:50%;
-filter:blur(120px);
-opacity:0.5;
+filter:blur(130px);
+opacity:0.45;
 animation:float 10s infinite alternate;
 }
 
 .g1{background:#d4af37; top:10%; left:10%;}
 .g2{background:#c0c0c0; bottom:10%; right:10%;}
-.g3{background:#222; top:40%; left:40%;}
+.g3{background:#222; top:40%; left:50%;}
 
 @keyframes float{
 0%{transform:translateY(0);}
-100%{transform:translateY(-50px);}
+100%{transform:translateY(-60px);}
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
 display:flex;
 justify-content:space-between;
-padding:15px 20px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
+align-items:center;
+padding:15px 25px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(212,175,55,0.2);
 position:sticky;
 top:0;
@@ -56,42 +57,26 @@ top:0;
 
 .logo{
 font-weight:bold;
+font-size:18px;
 background:linear-gradient(90deg,#d4af37,#c0c0c0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-nav a{
-color:#aaa;
-margin:0 10px;
+/* WALLET BUTTON */
+.wallet-btn{
+padding:10px 14px;
+border-radius:10px;
+background:linear-gradient(90deg,#d4af37,#c0c0c0);
+border:none;
 cursor:pointer;
-text-decoration:none;
-}
-
-nav a:hover{color:#d4af37;}
-
-/* SECTIONS */
-.section{
-display:none;
-padding:25px;
-}
-
-.active{display:block;}
-
-/* CARDS */
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(212,175,55,0.2);
-border-radius:12px;
-padding:15px;
-margin:10px 0;
-backdrop-filter:blur(10px);
+font-weight:bold;
+color:#000;
 transition:0.3s;
 }
 
-.card:hover{
-transform:scale(1.02);
-border-color:#d4af37;
+.wallet-btn:hover{
+transform:scale(1.05);
 }
 
 /* HERO */
@@ -101,28 +86,53 @@ padding:70px 20px;
 }
 
 .hero h1{
-font-size:55px;
+font-size:60px;
+margin:0;
 background:linear-gradient(90deg,#d4af37,#fff,#c0c0c0);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.btn{
-padding:10px 15px;
-background:linear-gradient(90deg,#d4af37,#c0c0c0);
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-margin:5px;
-color:#000;
+.hero p{
+color:#aaa;
+font-size:18px;
 }
 
+/* MARKET */
+.market{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(212,175,55,0.2);
+border-radius:15px;
+padding:15px;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.03);
+border-color:#d4af37;
+}
+
+/* PRICE */
 .price{
-font-size:30px;
+font-size:32px;
 color:#d4af37;
 font-weight:bold;
 }
+
+/* SMALL TEXT */
+.small{
+color:#aaa;
+font-size:14px;
+}
+
 </style>
 </head>
 
@@ -135,138 +145,77 @@ font-weight:bold;
 </div>
 
 <header>
-<div class="logo">NEXAR NETWORK</div>
+<div class="logo">NEXER NETWORK</div>
 
-<nav>
-<a onclick="go('home')">Home</a>
-<a onclick="go('market')">Markets</a>
-<a onclick="go('trade')">Trade</a>
-<a onclick="go('wallet')">Wallet</a>
-<a onclick="go('paper')">Whitepaper</a>
-</nav>
+<button class="wallet-btn" onclick="connectWallet()">
+Connect Wallet
+</button>
 </header>
 
-<!-- HOME -->
-<div id="home" class="section active">
 <div class="hero">
-<h1>NEXAR NETWORK</h1>
+<h1>NEXER NETWORK</h1>
 <p>The Next Generation of Digital Finance</p>
 
-<button class="btn" onclick="connectWallet()">Connect Wallet</button>
-<button class="btn" onclick="buy()">Buy NXR</button>
+<div class="price" id="price">$0.0000</div>
+<p class="small">Live Market Price (CoinGecko)</p>
 </div>
 
-<div class="card">
-Live Price: <span id="price">$0.0000</span>
-</div>
-</div>
-
-<!-- MARKET -->
-<div id="market" class="section">
-<h2>Live Market (CoinGecko + DexScreener)</h2>
-<div id="marketData" class="card">Loading market...</div>
-</div>
-
-<!-- TRADE -->
-<div id="trade" class="section">
-<h2>Trading Terminal</h2>
-
-<div class="card">
-<iframe
-src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT"
-width="100%" height="400"></iframe>
-</div>
-
-<div class="card">
-<button class="btn" onclick="buy()">BUY (DEX)</button>
-<button class="btn" onclick="buy()">SELL (DEX)</button>
-</div>
-</div>
-
-<!-- WALLET -->
-<div id="wallet" class="section">
-<h2>Wallet</h2>
-<button class="btn" onclick="connectWallet()">Connect MetaMask</button>
-<div id="walletInfo" class="card"></div>
-</div>
-
-<!-- WHITEPAPER -->
-<div id="paper" class="section">
-<h2>Whitepaper (Full Nexar Network)</h2>
-
-<div class="card">
-<h3>1. Executive Summary</h3>
-Nexar Network is a decentralized digital asset ecosystem built on BNB Smart Chain.
-
-<h3>2. Vision</h3>
-To build a global digital trading infrastructure.
-
-<h3>3. Mission</h3>
-Low fees, fast transactions, scalable ecosystem.
-
-<h3>4. Tokenomics</h3>
-- Liquidity 40%  
-- Ecosystem 20%  
-- Marketing 15%  
-- Rewards 15%  
-- Reserve 10%  
-
-<h3>5. Utility</h3>
-Payments, trading, ecosystem growth, governance.
-</div>
+<div class="market" id="market">
+<div class="card">Loading Market...</div>
 </div>
 
 <script>
 
-/* NAV */
-function go(id){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-}
-
-/* LIVE PRICE */
-setInterval(()=>{
-document.getElementById("price").innerText =
-"$" + (Math.random()*0.003).toFixed(6);
-},1200);
-
-/* COINGECKO */
-async function loadMarket(){
-try{
-let res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=8&page=1");
-let data = await res.json();
-
-let html="";
-data.forEach(c=>{
-html += `
-<div>
-<b>${c.name}</b> (${c.symbol.toUpperCase()})<br>
-Price: $${c.current_price}<br>
-Change: ${c.price_change_percentage_24h}%
-</div><hr>`;
-});
-
-document.getElementById("marketData").innerHTML = html;
-
-}catch(e){}
-}
-loadMarket();
-
-/* WALLET */
+/* ================= WALLET ================= */
 async function connectWallet(){
 if(window.ethereum){
 let acc = await ethereum.request({method:"eth_requestAccounts"});
-document.getElementById("walletInfo").innerHTML =
-"Connected Wallet: " + acc[0];
+alert("Connected: " + acc[0]);
 }else{
 alert("Install MetaMask");
 }
 }
 
-/* BUY */
-function buy(){
-window.open("https://pancakeswap.finance/swap");
+/* ================= LIVE PRICE ================= */
+async function loadPrice(){
+try{
+let res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
+let data = await res.json();
+document.getElementById("price").innerText =
+"$" + data.bitcoin.usd;
+}catch(e){}
 }
+loadPrice();
+setInterval(loadPrice,10000);
+
+/* ================= MARKET ================= */
+async function loadMarket(){
+try{
+let res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=8&page=1");
+let data = await res.json();
+
+let html = "";
+
+data.forEach(c=>{
+html += `
+<div class="card">
+<b>${c.name}</b><br>
+<span class="small">${c.symbol.toUpperCase()}</span><br><br>
+Price: $${c.current_price}<br>
+24h: ${c.price_change_percentage_24h?.toFixed(2)}%
+</div>
+`;
+});
+
+document.getElementById("market").innerHTML = html;
+
+}catch(e){
+document.getElementById("market").innerHTML =
+"<div class='card'>Market loading error</div>";
+}
+}
+loadMarket();
+setInterval(loadMarket,15000);
 
 </script>
 
