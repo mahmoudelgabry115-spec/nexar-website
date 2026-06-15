@@ -3,150 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Net Network (NXR)</title>
+<title>Nexar Network (NXR) - Exchange</title>
 
 <style>
 
-/* ================= ROOT THEMES ================= */
-:root{
---bg:#050505;
---card:rgba(255,255,255,0.05);
---text:#ffffff;
---gold:#d4af37;
-}
-
-body.light{
---bg:#f5f5f5;
---card:#ffffff;
---text:#111;
---gold:#b8891a;
-}
-
+/* ================= GLOBAL ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 body{
-margin:0;
-font-family:Arial;
-background:var(--bg);
-color:var(--text);
-transition:0.3s;
+background:#0a0a0a;
+color:#fff;
+overflow-x:hidden;
 }
 
-/* ================= BACKGROUND ================= */
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-background:radial-gradient(circle at top,#111,#000);
-z-index:-1;
+/* ================= LAYOUT ================= */
+.container{
+display:flex;
+height:100vh;
 }
 
-/* floating gold particles */
-.bg::before{
-content:"";
-position:absolute;
-width:200%;
-height:200%;
-background:radial-gradient(circle, rgba(212,175,55,0.08) 2px, transparent 2px);
-background-size:70px 70px;
-animation:move 25s linear infinite;
+/* ================= SIDEBAR ================= */
+.sidebar{
+width:220px;
+background:#111;
+padding:20px;
+border-right:1px solid rgba(212,175,55,0.2);
 }
 
-@keyframes move{
-from{transform:translateY(0);}
-to{transform:translateY(-200px);}
+.sidebar h2{
+color:#d4af37;
+margin-bottom:20px;
 }
 
-/* ================= HEADER ================= */
-header{
+.sidebar a{
+display:block;
+color:#fff;
+text-decoration:none;
+margin:12px 0;
+opacity:0.8;
+cursor:pointer;
+}
+
+.sidebar a:hover{opacity:1;}
+
+/* ================= MAIN ================= */
+.main{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
+/* ================= TOPBAR ================= */
+.topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
-background:var(--card);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
+padding:15px;
+background:#111;
 border-bottom:1px solid rgba(212,175,55,0.2);
 }
 
 .logo{
+color:#d4af37;
 font-weight:bold;
-color:var(--gold);
-font-size:20px;
+font-size:18px;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:15px;
+padding:15px;
+flex:1;
+}
+
+/* ================= CARDS ================= */
+.card{
+background:#151515;
+padding:15px;
+border-radius:10px;
+border:1px solid rgba(212,175,55,0.15);
+}
+
+/* ================= CHART ================= */
+.chart{
+height:250px;
+background:linear-gradient(45deg,#111,#1a1a1a);
+border-radius:10px;
+position:relative;
+overflow:hidden;
+}
+
+.line{
+position:absolute;
+width:200%;
+height:2px;
+background:#d4af37;
+top:60%;
+animation:move 4s linear infinite;
+}
+
+@keyframes move{
+from{left:-100%;}
+to{left:100%;}
 }
 
 /* ================= BUTTONS ================= */
 .btn{
 display:inline-block;
-padding:10px 18px;
+padding:10px 15px;
 margin:5px;
-border-radius:10px;
-background:var(--gold);
-color:black;
+background:#d4af37;
+color:#000;
 font-weight:bold;
 text-decoration:none;
+border-radius:8px;
+cursor:pointer;
 transition:0.3s;
 }
 
-.btn:hover{
-transform:scale(1.05);
+.btn:hover{transform:scale(1.05);}
+
+/* ================= ORDERBOOK ================= */
+.orderbook div{
+padding:5px;
+font-size:13px;
+opacity:0.9;
 }
 
-/* ================= SECTIONS ================= */
-.section{
-padding:70px 10%;
-}
-
-.card{
-background:var(--card);
-padding:20px;
-border-radius:12px;
-margin:10px 0;
-border:1px solid rgba(212,175,55,0.2);
+/* ================= PRICE ================= */
+.price{
+font-size:32px;
+color:#d4af37;
 }
 
 /* ================= GRID ================= */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px;
-}
-
-/* ================= HERO ================= */
-.hero{
-text-align:center;
-padding:110px 20px;
-}
-
-.hero h1{
-font-size:55px;
-}
-
-.hero span{color:var(--gold);}
-
-/* ================= PRICE ================= */
-.price{
-text-align:center;
-padding:20px;
-background:var(--card);
-border:1px solid rgba(212,175,55,0.2);
-border-radius:12px;
-}
-
-/* ================= TOGGLE ================= */
-.toggle{
-cursor:pointer;
-padding:8px 12px;
-border:1px solid var(--gold);
-border-radius:8px;
-background:none;
-color:var(--text);
-}
-
-/* ================= FOOTER ================= */
-footer{
-text-align:center;
-padding:30px;
-border-top:1px solid rgba(212,175,55,0.2);
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
 }
 
 </style>
@@ -154,104 +149,104 @@ border-top:1px solid rgba(212,175,55,0.2);
 
 <body>
 
-<div class="bg"></div>
+<div class="container">
 
-<header>
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>NEXAR</h2>
+<a onclick="scrollTo('chart')">Chart</a>
+<a onclick="scrollTo('trade')">Trade</a>
+<a onclick="scrollTo('stats')">Stats</a>
+<a href="https://bscscan.com/address/0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">BSCScan</a>
+</div>
 
-<div class="logo">NET NETWORK (NXR)</div>
+<!-- MAIN -->
+<div class="main">
 
+<!-- TOPBAR -->
+<div class="topbar">
+<div class="logo">NEXAR NETWORK (NXR)</div>
 <div>
-<button class="toggle" onclick="toggleTheme()">Dark / Light</button>
+<button class="btn" onclick="copy()">Copy</button>
+<button class="btn" onclick="toggle()">Theme</button>
 </div>
-
-</header>
-
-<!-- HERO -->
-<section class="hero">
-
-<h1>NET <span>NETWORK</span></h1>
-<p>Next Generation Web3 Digital Ecosystem</p>
-
-<a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">
-BUY NXR (DEX)
-</a>
-
-<a class="btn" href="https://bscscan.com/address/0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">
-BSCScan
-</a>
-
-<a class="btn" onclick="copy()">Copy Contract</a>
-
-<div class="card" style="margin-top:20px;">
-0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
 </div>
-
-</section>
-
-<!-- LIVE PRICE -->
-<section class="section">
-
-<h2 style="text-align:center;">Live Price</h2>
-
-<div class="price">
-<h1 id="price">$0.00000</h1>
-<p>Real-time simulation (API ready)</p>
-</div>
-
-</section>
 
 <!-- DASHBOARD -->
-<section class="section">
+<div class="dashboard">
 
-<h2>Market Dashboard</h2>
+<!-- LEFT -->
+<div>
 
+<!-- PRICE -->
+<div class="card">
+<h3>Live Price</h3>
+<div class="price" id="price">$0.00000</div>
+</div>
+
+<!-- CHART -->
+<div class="card chart" id="chart">
+<div class="line"></div>
+</div>
+
+<!-- STATS -->
+<div class="card" id="stats">
+<h3>Market Stats</h3>
 <div class="grid">
-
-<div class="card">Network: BNB Smart Chain</div>
+<div class="card">Network: BNB</div>
 <div class="card">Symbol: NXR</div>
-<div class="card">Max Supply: 500,000,000</div>
-<div class="card">Status: Active</div>
+<div class="card">Supply: 500M</div>
+<div class="card">Status: LIVE</div>
+</div>
+</div>
 
 </div>
 
-</section>
+<!-- RIGHT -->
+<div>
 
-<!-- TOKENOMICS -->
-<section class="section">
+<!-- TRADE -->
+<div class="card" id="trade">
+<h3>Trade NXR</h3>
 
-<h2>Tokenomics</h2>
+<a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4" target="_blank">
+BUY (DEX)
+</a>
 
-<div class="grid">
+<a class="btn" onclick="alert('Sell feature coming soon')">
+SELL
+</a>
 
-<div class="card">Liquidity — 40%</div>
-<div class="card">Ecosystem — 20%</div>
-<div class="card">Marketing — 15%</div>
-<div class="card">Community — 15%</div>
-<div class="card">Reserve — 10%</div>
+<a class="btn" onclick="copy()">
+Copy Contract
+</a>
 
 </div>
 
-</section>
+<!-- ORDERBOOK -->
+<div class="card orderbook">
+<h3>Order Book</h3>
+<div>Buy 0.00001 — 1200 NXR</div>
+<div>Buy 0.000009 — 800 NXR</div>
+<div>Sell 0.000011 — 500 NXR</div>
+<div>Sell 0.000012 — 900 NXR</div>
+</div>
 
-<!-- ROADMAP -->
-<section class="section">
+</div>
 
-<h2>Roadmap</h2>
+</div>
 
-<div class="card">Phase I — Launch</div>
-<div class="card">Phase II — Branding</div>
-<div class="card">Phase III — Listings</div>
-<div class="card">Phase IV — Expansion</div>
-<div class="card">Phase V — Global Adoption</div>
+</div>
 
-</section>
-
-<!-- FOOTER -->
-<footer>
-NET NETWORK (NXR) © 2026
-</footer>
+</div>
 
 <script>
+
+/* PRICE LIVE SIM */
+setInterval(()=>{
+let p = (Math.random()*0.001).toFixed(6);
+document.getElementById("price").innerText="$"+p;
+},1500);
 
 /* COPY */
 function copy(){
@@ -259,16 +254,15 @@ navigator.clipboard.writeText("0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4");
 alert("Copied!");
 }
 
-/* THEME TOGGLE */
-function toggleTheme(){
-document.body.classList.toggle("light");
+/* SCROLL */
+function scrollTo(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-/* LIVE PRICE SIM */
-setInterval(()=>{
-let p=(Math.random()*0.001).toFixed(6);
-document.getElementById("price").innerText="$"+p;
-},2000);
+/* THEME */
+function toggle(){
+document.body.classList.toggle("light");
+}
 
 </script>
 
