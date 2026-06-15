@@ -1,34 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexar (NXR)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexar Network (NXR)</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#050816;
+color:white;
+scroll-behavior:smooth;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+background:#0b1024;
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#8b5cf6;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-size:14px;
+cursor:pointer;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:radial-gradient(circle,#1b1f3a,#050816);
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero span{
+color:#8b5cf6;
+}
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+margin:8px;
+border-radius:10px;
+background:#8b5cf6;
+color:white;
+text-decoration:none;
+cursor:pointer;
+}
+
+.section{
+padding:70px 10%;
+}
+
+.card{
+background:#0d1226;
+padding:20px;
+border-radius:12px;
+margin:10px 0;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.small{
+font-size:14px;
+opacity:0.8;
+}
+
+.lang-btn{
+background:#111827;
+border:1px solid #8b5cf6;
+padding:6px 10px;
+color:white;
+cursor:pointer;
+border-radius:8px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+border-top:1px solid #222;
+}
+</style>
 </head>
-<body style="background:black;color:white;text-align:center;font-family:Arial;padding:50px;">
-    <h1>Nexar Network</h1>
-    <h2>Next Generation Blockchain</h2>
 
-    <p>Native Token: NXR</p>
+<body>
 
-    <p>
-        Fast • Secure • Decentralized
-    </p>
+<header>
+<div class="logo">NEXAR</div>
 
-    <hr>
+<nav>
+<a onclick="scrollToSec('about')">About</a>
+<a onclick="scrollToSec('tokenomics')">Tokenomics</a>
+<a onclick="scrollToSec('roadmap')">Roadmap</a>
+<a onclick="scrollToSec('whitepaper')">Whitepaper</a>
+</nav>
 
-    <h3>Official Contract</h3>
+<button class="lang-btn" onclick="toggleLang()">AR / EN</button>
+</header>
 
-    <p>
-        سيتم إضافة عنوان العقد هنا
-    </p>
+<section class="hero">
 
-    <h3>Official Links</h3>
+<h1 id="title">NEXAR NETWORK</h1>
+<p id="subtitle">Empowering the Future of Digital Payments</p>
 
-    <p>BscScan</p>
-    <p>GitHub</p>
-    <p>Telegram</p>
-    <p>X (Twitter)</p>
+<a class="btn" href="https://t.me/NexarEgypt">Telegram</a>
+<a class="btn" href="https://x.com/NexarToken">X</a>
+<a class="btn" onclick="copyContract()">Copy Contract</a>
+
+<div class="card small">
+<b>Contract:</b>
+0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
+</div>
+
+</section>
+
+<section class="section" id="about">
+
+<h2 id="aboutTitle">About Nexar</h2>
+
+<div class="card" id="aboutText">
+Nexar is a blockchain-based digital payment ecosystem built on BNB Smart Chain focusing on speed, scalability, and accessibility.
+</div>
+
+</section>
+
+<section class="section" id="tokenomics">
+
+<h2 id="tokenTitle">Tokenomics</h2>
+
+<div class="grid">
+
+<div class="card">Liquidity & Listings — 40%</div>
+<div class="card">Ecosystem — 20%</div>
+<div class="card">Marketing — 15%</div>
+<div class="card">Community Rewards — 15%</div>
+<div class="card">Strategic Reserve — 10%</div>
+
+</div>
+
+</section>
+
+<section class="section" id="roadmap">
+
+<h2 id="roadTitle">Roadmap</h2>
+
+<div class="card">Phase I — Launch & Liquidity</div>
+<div class="card">Phase II — Website & Branding</div>
+<div class="card">Phase III — Listings & Growth</div>
+<div class="card">Phase IV — Ecosystem Expansion</div>
+<div class="card">Phase V — Long Term Development</div>
+
+</section>
+
+<section class="section" id="whitepaper">
+
+<h2>Whitepaper</h2>
+
+<div class="card" id="whiteText">
+Nexar aims to build a secure, scalable digital payment ecosystem with low fees and global accessibility.
+</div>
+
+<a class="btn" href="#" onclick="alert('Upload PDF later')">Download Whitepaper</a>
+
+</section>
+
+<footer>
+<p>© 2026 Nexar Network</p>
+<p>
+Telegram | X | Instagram | Facebook
+</p>
+</footer>
+
+<script>
+
+let isArabic = false;
+
+function toggleLang(){
+
+isArabic = !isArabic;
+
+if(isArabic){
+
+document.getElementById("title").innerText="نكسار نتورك";
+document.getElementById("subtitle").innerText="تمكين مستقبل المدفوعات الرقمية";
+document.getElementById("aboutTitle").innerText="حول نكسار";
+document.getElementById("aboutText").innerText="نكسار هو مشروع بلوكتشين مبني على BNB Smart Chain يهدف إلى مدفوعات رقمية سريعة وآمنة وقابلة للتوسع.";
+document.getElementById("tokenTitle").innerText="اقتصاد التوكن";
+document.getElementById("roadTitle").innerText="خارطة الطريق";
+
+}else{
+
+location.reload();
+
+}
+
+}
+
+function copyContract(){
+navigator.clipboard.writeText("0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4");
+alert("Contract Copied!");
+}
+
+function scrollToSec(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+</script>
 
 </body>
 </html>
