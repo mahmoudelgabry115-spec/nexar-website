@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexar Network (NXR)</title>
+<title>Nexar Network (NXR) - Web3 DApp</title>
 
 <style>
 body{
@@ -16,10 +16,19 @@ color:#fff;
 header{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:15px;
 background:#0e1424;
 position:sticky;
 top:0;
+border-bottom:1px solid rgba(0,229,255,0.2);
+}
+
+.logo{
+font-weight:bold;
+background:linear-gradient(90deg,#00e5ff,#7c4dff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 nav a{
@@ -29,30 +38,26 @@ cursor:pointer;
 text-decoration:none;
 }
 
-.section{
-display:none;
-padding:40px;
-}
-
-.active{
-display:block;
-}
+.section{display:none;padding:30px;}
+.active{display:block;}
 
 .card{
 background:#111a2e;
 padding:20px;
-margin:15px 0;
-border-radius:10px;
+border-radius:12px;
+margin:10px 0;
+border:1px solid rgba(255,255,255,0.08);
 }
 
 .btn{
 padding:10px 15px;
-background:#00e5ff;
+background:linear-gradient(90deg,#00e5ff,#7c4dff);
 border:none;
-cursor:pointer;
 border-radius:8px;
+cursor:pointer;
 font-weight:bold;
 margin:5px;
+color:#000;
 }
 
 h1 span{
@@ -64,7 +69,7 @@ color:#7c4dff;
 <body>
 
 <header>
-<div><b>NEXAR NETWORK (NXR)</b></div>
+<div class="logo">NEXAR NETWORK (NXR)</div>
 
 <nav>
 <a onclick="show('home')">Home</a>
@@ -76,79 +81,95 @@ color:#7c4dff;
 
 <!-- HOME -->
 <div id="home" class="section active">
-
 <h1>NEXAR <span>NETWORK</span></h1>
 
 <div class="card">
 Live Price: <span id="price">$0.0000</span>
 </div>
 
-<button class="btn" onclick="window.open('https://pancakeswap.finance/swap?outputCurrency=0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4')">
-BUY (DEX)
-</button>
-
-<button class="btn" onclick="window.open('https://bscscan.com/address/0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4')">
-BSCScan
-</button>
-
+<button class="btn" onclick="buy()">BUY (DEX)</button>
+<button class="btn" onclick="bsc()">BSCScan</button>
 </div>
 
 <!-- TRADE -->
 <div id="trade" class="section">
-
 <h2>Live Market (DexScreener)</h2>
-
-<div class="card">
-Loading market data...
-</div>
-
+<div class="card" id="market">Loading live data...</div>
 </div>
 
 <!-- WALLET -->
 <div id="wallet" class="section">
-
 <h2>Wallet</h2>
-
 <button class="btn" onclick="connect()">Connect MetaMask</button>
-
 <div class="card" id="walletInfo"></div>
-
 </div>
 
 <!-- WHITEPAPER -->
 <div id="whitepaper" class="section">
-
 <h2>Whitepaper</h2>
-
 <div class="card">
-Nexar Network is a Web3 ecosystem built on BNB Chain for fast and scalable digital payments.
+Nexar Network is a Web3 decentralized ecosystem built on BNB Chain for fast, secure and scalable digital transactions.
 </div>
-
 </div>
 
 <script>
 
-/* NAVIGATION */
+// NAV
 function show(id){
 document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 }
 
-/* LIVE PRICE SIM */
+// LIVE PRICE (SIMULATION)
 setInterval(()=>{
 document.getElementById("price").innerText =
 "$" + (Math.random()*0.001).toFixed(6);
 },1500);
 
-/* WALLET CONNECT */
+// DEXSCREENER LIVE MARKET
+async function loadMarket(){
+try{
+let res = await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc");
+let data = await res.json();
+
+let html = "";
+data.pairs.slice(0,8).forEach(p=>{
+html += `
+<div class="card">
+<b>${p.baseToken.symbol}</b> / ${p.quoteToken.symbol}<br>
+Price: $${p.priceUsd}<br>
+Liquidity: $${p.liquidity.usd}
+</div>
+`;
+});
+
+document.getElementById("market").innerHTML = html;
+
+}catch(e){
+document.getElementById("market").innerHTML = "API loading error";
+}
+}
+loadMarket();
+
+// WALLET CONNECT
 async function connect(){
 if(window.ethereum){
 const acc = await ethereum.request({method:"eth_requestAccounts"});
-document.getElementById("walletInfo").innerText =
+document.getElementById("walletInfo").innerHTML =
 "Wallet: " + acc[0];
 }else{
 alert("Install MetaMask");
 }
+}
+
+// BUY (SAFE REDIRECT)
+function buy(){
+window.open("https://pancakeswap.finance/swap?outputCurrency=0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4");
+}
+
+// BSC
+function bsc(){
+window.open("https://bscscan.com/address/0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4");
 }
 
 </script>
