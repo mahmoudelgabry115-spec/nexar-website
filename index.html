@@ -2,85 +2,174 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Nexar NETWORK</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXAR NETWORK</title>
 
 <link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.umd.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 </head>
-
 <body>
 
-<div class="bg"></div>
+<div class="background"></div>
 
 <nav>
-  <div class="logo">NEXAR NETWORK</div>
 
-  <div class="nav-actions">
-    <button onclick="connectWallet()">Connect Wallet</button>
-    <a href="#swap">Swap</a>
-    <a href="#dashboard">Dashboard</a>
-  </div>
+<div class="logo">
+NEXAR NETWORK
+</div>
+
+<div class="menu">
+
+<a href="#ecosystem">Ecosystem</a>
+
+<a href="#technology">Technology</a>
+
+<a href="#roadmap">Roadmap</a>
+
+<a href="whitepaper.html">Whitepaper</a>
+
+<a class="launch-btn" href="app.html">
+Launch App
+</a>
+
+</div>
+
 </nav>
 
-<header>
-  <h1>Nexar Network Web3</h1>
-  <p>Full Decentralized Trading Ecosystem</p>
-</header>
+<section class="hero">
 
-<!-- DASHBOARD -->
-<section id="dashboard" class="dashboard">
+<h1>
+Building The Future Of Decentralized Finance
+</h1>
 
-  <div class="card">
-    <h3>Wallet</h3>
-    <p id="wallet">Not Connected</p>
-  </div>
+<p>
 
-  <div class="card">
-    <h3>BNB</h3>
-    <p id="bnb">0</p>
-  </div>
+Fast • Secure • Scalable • Global
 
-  <div class="card">
-    <h3>NXR</h3>
-    <p id="nxr">0</p>
-  </div>
+</p>
 
-  <div class="card">
-    <h3>Total Value</h3>
-    <p id="value">$0</p>
-  </div>
+<div class="hero-buttons">
+
+<a class="gold-btn" href="#ecosystem">
+
+Explore Ecosystem
+
+</a>
+
+<a class="blue-btn" href="app.html">
+
+Launch App
+
+</a>
+
+</div>
 
 </section>
 
-<!-- MARKET -->
-<section class="market">
-  <h2>Live Market</h2>
-  <p id="price">$0.0000</p>
+<section id="ecosystem">
+
+<h2>Ecosystem</h2>
+
+<div class="cards">
+
+<div class="card">
+Wallet
+</div>
+
+<div class="card">
+DEX
+</div>
+
+<div class="card">
+Bridge
+</div>
+
+<div class="card">
+Staking
+</div>
+
+<div class="card">
+Governance
+</div>
+
+<div class="card">
+AI Assistant
+</div>
+
+</div>
+
 </section>
 
-<!-- SWAP -->
-<section id="swap" class="swap">
+<section id="technology">
 
-<h2>DEX Swap</h2>
+<h2>Technology</h2>
 
-<input id="tokenIn" placeholder="Token In Address">
-<input id="tokenOut" placeholder="Token Out Address">
-<input id="amount" placeholder="Amount">
+<div class="cards">
 
-<button onclick="swapTokens()">Execute Swap</button>
+<div class="card">
+Lightning Fast
+</div>
+
+<div class="card">
+Cross Chain
+</div>
+
+<div class="card">
+Secure Infrastructure
+</div>
+
+<div class="card">
+Scalable Ecosystem
+</div>
+
+</div>
+
+</section>
+
+<section id="roadmap">
+
+<h2>Roadmap</h2>
+
+<div class="cards">
+
+<div class="card">
+
+Phase 1
+
+</div>
+
+<div class="card">
+
+Phase 2
+
+</div>
+
+<div class="card">
+
+Phase 3
+
+</div>
+
+<div class="card">
+
+Phase 4
+
+</div>
+
+</div>
 
 </section>
 
 <footer>
-<p>NEXAR NETWORK © 2026</p>
-</footer>
 
-<script src="wallet.js"></script>
-<script src="market.js"></script>
-<script src="swap.js"></script>
-<script src="app.js"></script>
+NEXAR NETWORK © 2026
+
+</footer>
 
 </body>
 </html>
