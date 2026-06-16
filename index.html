@@ -2,222 +2,85 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Nexar NETWORK</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nexer Network</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:#050505;
-color:#fff;
-overflow-x:hidden;
-}
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.umd.min.js"></script>
 
-/* ================= BACKGROUND ================= */
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-2;
-background:radial-gradient(circle at top,#111,#050505);
-}
-
-.glow{
-position:absolute;
-width:500px;
-height:500px;
-border-radius:50%;
-filter:blur(130px);
-opacity:0.45;
-animation:float 10s infinite alternate;
-}
-
-.g1{background:#d4af37; top:10%; left:10%;}
-.g2{background:#c0c0c0; bottom:10%; right:10%;}
-.g3{background:#222; top:40%; left:50%;}
-
-@keyframes float{
-0%{transform:translateY(0);}
-100%{transform:translateY(-60px);}
-}
-
-/* ================= HEADER ================= */
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 25px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(212,175,55,0.2);
-position:sticky;
-top:0;
-}
-
-.logo{
-font-weight:bold;
-font-size:18px;
-background:linear-gradient(90deg,#d4af37,#c0c0c0);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-/* WALLET BUTTON */
-.wallet-btn{
-padding:10px 14px;
-border-radius:10px;
-background:linear-gradient(90deg,#d4af37,#c0c0c0);
-border:none;
-cursor:pointer;
-font-weight:bold;
-color:#000;
-transition:0.3s;
-}
-
-.wallet-btn:hover{
-transform:scale(1.05);
-}
-
-/* HERO */
-.hero{
-text-align:center;
-padding:70px 20px;
-}
-
-.hero h1{
-font-size:60px;
-margin:0;
-background:linear-gradient(90deg,#d4af37,#fff,#c0c0c0);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{
-color:#aaa;
-font-size:18px;
-}
-
-/* MARKET */
-.market{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-padding:20px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(212,175,55,0.2);
-border-radius:15px;
-padding:15px;
-backdrop-filter:blur(10px);
-transition:0.3s;
-}
-
-.card:hover{
-transform:scale(1.03);
-border-color:#d4af37;
-}
-
-/* PRICE */
-.price{
-font-size:32px;
-color:#d4af37;
-font-weight:bold;
-}
-
-/* SMALL TEXT */
-.small{
-color:#aaa;
-font-size:14px;
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="bg">
-<div class="glow g1"></div>
-<div class="glow g2"></div>
-<div class="glow g3"></div>
-</div>
+<div class="bg"></div>
+
+<nav>
+  <div class="logo">NEXAR NETWORK</div>
+
+  <div class="nav-actions">
+    <button onclick="connectWallet()">Connect Wallet</button>
+    <a href="#swap">Swap</a>
+    <a href="#dashboard">Dashboard</a>
+  </div>
+</nav>
 
 <header>
-<div class="logo">NEXER NETWORK</div>
-
-<button class="wallet-btn" onclick="connectWallet()">
-Connect Wallet
-</button>
+  <h1>Nexar Network Web3</h1>
+  <p>Full Decentralized Trading Ecosystem</p>
 </header>
 
-<div class="hero">
-<h1>NEXER NETWORK</h1>
-<p>The Next Generation of Digital Finance</p>
+<!-- DASHBOARD -->
+<section id="dashboard" class="dashboard">
 
-<div class="price" id="price">$0.0000</div>
-<p class="small">Live Market Price (CoinGecko)</p>
-</div>
+  <div class="card">
+    <h3>Wallet</h3>
+    <p id="wallet">Not Connected</p>
+  </div>
 
-<div class="market" id="market">
-<div class="card">Loading Market...</div>
-</div>
+  <div class="card">
+    <h3>BNB</h3>
+    <p id="bnb">0</p>
+  </div>
 
-<script>
+  <div class="card">
+    <h3>NXR</h3>
+    <p id="nxr">0</p>
+  </div>
 
-/* ================= WALLET ================= */
-async function connectWallet(){
-if(window.ethereum){
-let acc = await ethereum.request({method:"eth_requestAccounts"});
-alert("Connected: " + acc[0]);
-}else{
-alert("Install MetaMask");
-}
-}
+  <div class="card">
+    <h3>Total Value</h3>
+    <p id="value">$0</p>
+  </div>
 
-/* ================= LIVE PRICE ================= */
-async function loadPrice(){
-try{
-let res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
-let data = await res.json();
-document.getElementById("price").innerText =
-"$" + data.bitcoin.usd;
-}catch(e){}
-}
-loadPrice();
-setInterval(loadPrice,10000);
+</section>
 
-/* ================= MARKET ================= */
-async function loadMarket(){
-try{
-let res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=8&page=1");
-let data = await res.json();
+<!-- MARKET -->
+<section class="market">
+  <h2>Live Market</h2>
+  <p id="price">$0.0000</p>
+</section>
 
-let html = "";
+<!-- SWAP -->
+<section id="swap" class="swap">
 
-data.forEach(c=>{
-html += `
-<div class="card">
-<b>${c.name}</b><br>
-<span class="small">${c.symbol.toUpperCase()}</span><br><br>
-Price: $${c.current_price}<br>
-24h: ${c.price_change_percentage_24h?.toFixed(2)}%
-</div>
-`;
-});
+<h2>DEX Swap</h2>
 
-document.getElementById("market").innerHTML = html;
+<input id="tokenIn" placeholder="Token In Address">
+<input id="tokenOut" placeholder="Token Out Address">
+<input id="amount" placeholder="Amount">
 
-}catch(e){
-document.getElementById("market").innerHTML =
-"<div class='card'>Market loading error</div>";
-}
-}
-loadMarket();
-setInterval(loadMarket,15000);
+<button onclick="swapTokens()">Execute Swap</button>
 
-</script>
+</section>
+
+<footer>
+<p>NEXAR NETWORK © 2026</p>
+</footer>
+
+<script src="wallet.js"></script>
+<script src="market.js"></script>
+<script src="swap.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
