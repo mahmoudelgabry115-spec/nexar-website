@@ -2,16 +2,17 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NEXAR APP</title>
+<title>Nexar App</title>
 
 <link rel="stylesheet" href="app.css">
 
-<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.1/dist/ethers.umd.min.js"></script>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/ethers@6.13.1/dist/ethers.umd.min.js"></script>
 </head>
 
 <body>
@@ -19,260 +20,108 @@
 <div class="background"></div>
 
 <nav>
+<div class="logo">NEXAR</div>
 
-<div class="logo">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="whitepaper.html">Whitepaper</a></li>
+</ul>
 
-NEXAR APP
-
-</div>
-
-<div class="nav-menu">
-
-<button id="connectButton">
-
-Connect Wallet
-
-</button>
-
-</div>
-
+<button id="connectButton">Connect Wallet</button>
 </nav>
 
 <section class="hero">
-
-<h1>
-
-NEXAR NETWORK
-
-</h1>
-
-<p>
-
-Trade • Earn • Stake • Bridge
-
-</p>
-
+<h1>NEXAR APP</h1>
+<p>Trade • Market • Portfolio</p>
 </section>
 
 <section class="dashboard">
 
-<div class="card">
-
-<h3>Wallet Address</h3>
-
-<p id="walletAddress">
-
-Not Connected
-
-</p>
-
+<div class="box">
+<h3>Portfolio Value</h3>
+<h2 id="portfolioValue">$0</h2>
 </div>
 
-<div class="card">
-
+<div class="box">
 <h3>BNB Balance</h3>
-
-<p id="bnbBalance">
-
-0
-
-</p>
-
+<h2 id="bnbBalance">0</h2>
 </div>
 
-<div class="card">
-
+<div class="box">
 <h3>NXR Balance</h3>
-
-<p id="nxrBalance">
-
-0
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Total Value</h3>
-
-<p id="portfolioValue">
-
-$0
-
-</p>
-
+<h2 id="nxrBalance">0</h2>
 </div>
 
 </section>
 
 <section class="market">
 
-<h2>
+<h2>Live Market</h2>
 
-Market Overview
-
-</h2>
+<div class="cards">
 
 <div class="card">
-
 <h3>Price</h3>
+<h1 id="price">$0</h1>
+</div>
 
-<p id="price">
+<div class="card">
+<h3>Market Cap</h3>
+<h1 id="marketCap">$0</h1>
+</div>
 
---
+<div class="card">
+<h3>Liquidity</h3>
+<h1 id="liquidity">$0</h1>
+</div>
 
-<!-- ========================= -->
-<!-- NEXAR NETWORK BUY SECTION -->
-<!-- ========================= -->
+<div class="card">
+<h3>Volume</h3>
+<h1 id="volume">$0</h1>
+</div>
 
-<section class="buy-box">
-
-<h2>NEXAR NETWORK - Buy NXR Token</h2>
-
-<input 
-id="nxrAmount"
-type="number"
-placeholder="Enter NXR Amount"
-oninput="calculateNXR()"
-/>
-
-<p>Price per NXR: <span id="nxrPrice">$0.002</span></p>
-
-<p>Total Cost: <span id="nxrTotal">$0.00</span></p>
-
-<button onclick="buyNXR()">
-Buy NXR
-</button>
+</div>
 
 </section>
 
-</p>
+<section class="buy">
 
-</div>
+<h2>Buy NXR</h2>
 
-<div class="card">
+<input id="amount" type="number" placeholder="Enter amount">
 
-<h3>Market Cap</h3>
-
-<p id="marketCap">
-
---
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Liquidity</h3>
-
-<p id="liquidity">
-
---
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>24H Volume</h3>
-
-<p id="volume">
-
---
-
-</p>
-
-</div>
+<button id="buyButton">Buy NXR</button>
 
 </section>
 
 <section class="swap">
 
-<h2>
+<h2>Nexar Swap</h2>
 
-Swap
+<input placeholder="From Token">
+<input placeholder="To Token">
 
-</h2>
-
-<div class="swap-box">
-
-<input id="tokenIn" placeholder="Token In">
-
-<input id="tokenOut" placeholder="Token Out">
-
-<input id="amountIn" placeholder="Amount">
-
-<button id="swapButton">
-
-Swap
-
-</button>
-
-</div>
+<button id="swapButton">Swap</button>
 
 </section>
 
-<section class="staking">
+<footer>
+<div class="socials">
 
-<h2>
-
-Staking
-
-</h2>
-
-<div class="card">
-
-Coming Soon
+<a href="https://t.me/NexarEgypt"><i class="fa-brands fa-telegram"></i></a>
+<a href="https://x.com/NexarToken"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="https://www.instagram.com/nexar.eg"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://www.facebook.com/share/18XgdmdWkY/"><i class="fa-brands fa-facebook"></i></a>
 
 </div>
+</footer>
 
-</section>
-
-<section class="bridge">
-
-<h2>
-
-Bridge
-
-</h2>
-
-<div class="card">
-
-Coming Soon
-
-</div>
-
-</section>
-
-<section class="ai">
-
-<h2>
-
-NEXAR AI Assistant
-
-</h2>
-
-<div class="card">
-
-Coming Soon
-
-</div>
-
-</section>
-
+<script src="notifications.js"></script>
 <script src="wallet.js"></script>
-
-<script src="dashboard.js"></script>
-
 <script src="market.js"></script>
-
+<script src="dashboard.js"></script>
 <script src="swap.js"></script>
-
 <script src="app.js"></script>
 
 </body>
-
 </html>
