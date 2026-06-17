@@ -1,398 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NEXAR Network</title><link rel="icon" href="assets/logo.png"><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet"></head><body><!-- Background --><canvas id="stars"></canvas>
 
-<title>Nexar (NXR)</title>
+<!-- HEADER --><header class="header"><div class="brand"><img src="assets/logo.png" class="logo"><div class="brandText"><h2>NEXAR Network</h2><p>Empowering the Future of Digital Payments</p></div></div><nav><button class="navBtn active">
+🏠 Home
+</button><button class="navBtn">
+📈 Market
+</button><button class="navBtn">
+🔄 Swap
+</button><button class="navBtn">
+📄 Whitepaper
+</button><button class="navBtn">
+ℹ️ About
+</button></nav><button class="connectWallet">Connect Wallet
 
-<link rel="stylesheet" href="style.css">
+</button></header><!-- HERO --><section class="hero"><img src="assets/logo.png" class="heroLogo"><h1>NEXAR NETWORK</h1><h3>Empowering the Future of Digital Payments
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</h3><button class="launchBtn">🚀 Launch App
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+</button></section><!-- BUY BOX --><section class="buyBox"><h2>Buy NXR
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</h2><div class="inputBox"><div class="tokenSelect"><img src="assets/bnb.png"><span>BNB</span>
 
-</head>
+</div><input type="number" placeholder="0.0"></div><div class="priceInfo">1 NXR = 0.0002 BNB
 
-<body>
+</div><button class="buyBtn">BUY NXR
 
-<div class="background"></div>
+</button></section><!-- TOKEN INFO --><section class="tokenInfo"><div class="infoCard"><h3>Total Supply</h3>500,000,000 NXR
 
-<nav>
+</div><div class="infoCard"><h3>Network</h3>BNB Smart Chain
 
-<div class="logo">
+</div><div class="infoCard"><h3>Contract Address</h3>0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
 
-NEXAR
+</div></section><!-- SOCIAL --><footer>Telegram
 
-</div>
+X
 
-<ul>
+Facebook
 
-<li>
-<a href="index.html">Home</a>
-</li>
+Instagram
 
-<li>
-<a href="app.html">Launch App</a>
-</li>
+</footer><script src="animation.js"></script><script src="app.js"></script></body></html>
 
-<li>
-<a href="whitepaper.html">Whitepaper</a>
-</li>
+<footer class="footer"><div class="footerGrid"><!-- Brand --><div class="footerBox"><h2>NEXAR Network
 
-</ul>
+</h2><p>Empowering the Future of Digital Payments
 
-</nav>
+</p></div><!-- Navigation --><div class="footerBox"><h3>Navigation
 
+</h3><a href="index.html">Home
 
-<section class="hero">
+</a><a href="#market">Market
 
-<h1>
+</a><a href="#swap">Swap
 
-Empowering the Future
-of Digital Payments
+</a><a href="whitepaper.html">Whitepaper
 
-</h1>
+</a><a href="about.html">About
 
-<p>
+</a></div><!-- Social --><div class="footerBox"><h3>Social Media
 
-Secure • Fast • Scalable
+</h3><a href="https://x.com/NexarToken">𝕏 Twitter
 
-</p>
+</a><a href="https://t.me/NexarEgypt">Telegram
 
-<div class="hero-buttons">
+</a><a href="https://www.facebook.com/share/18XgdmdWkY/">Facebook
 
-<a href="app.html" class="btn">
+</a><a href="https://www.instagram.com/nexar.eg">Instagram
 
-Launch App
+</a></div><!-- Contract --><div class="footerBox"><h3>Smart Contract
 
-</a>
+</h3><p id="contractText">0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
 
-<a href="whitepaper.html" class="btn2">
+</p><button
+class="copyBtn"
+onclick="copyContract()">
 
-Whitepaper
+Copy Contract
 
-</a>
+</button></div></div><div class="copyright">© 2025 NEXAR Network
 
-</div>
+</div></footer>
 
-</section>
-
-
-<section class="ecosystem">
-
-<h2>
-
-Nexar Ecosystem
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-wallet"></i>
-
-<h3>
-
-Digital Payments
-
-</h3>
-
-<p>
-
-Fast and efficient transfers.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<i class="fa-solid fa-store"></i>
-
-<h3>
-
-Merchant Solutions
-
-</h3>
-
-<p>
-
-Future integrations for businesses.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<i class="fa-solid fa-users"></i>
-
-<h3>
-
-Community Programs
-
-</h3>
-
-<p>
-
-Reward mechanisms and participation.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<i class="fa-solid fa-code"></i>
-
-<h3>
-
-Developer Ecosystem
-
-</h3>
-
-<p>
-
-Supporting long-term innovation.
-
-</p>
-
-</div>
-
-
-<div class="card">
-
-<i class="fa-solid fa-server"></i>
-
-<h3>
-
-Future Infrastructure
-
-</h3>
-
-<p>
-
-Building the next generation.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="technology">
-
-<h2>
-
-Technology
-
-</h2>
-
-<p>
-
-Built on BNB Smart Chain using BEP-20 standard,
-offering low fees and high speed transactions.
-
-</p>
-
-</section>
-
-
-
-<section class="tokenomics">
-
-<h2>
-
-Tokenomics
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-40%
-
-<br>
-
-Liquidity & Listings
-
-</div>
-
-<div class="card">
-
-20%
-
-<br>
-
-Ecosystem Development
-
-</div>
-
-<div class="card">
-
-15%
-
-<br>
-
-Marketing
-
-</div>
-
-<div class="card">
-
-15%
-
-<br>
-
-Community Rewards
-
-</div>
-
-<div class="card">
-
-10%
-
-<br>
-
-Strategic Reserve
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="roadmap">
-
-<h2>
-
-Roadmap
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-Phase I
-
-<br>
-
-Foundation
-
-</div>
-
-<div class="card">
-
-Phase II
-
-<br>
-
-Community Expansion
-
-</div>
-
-<div class="card">
-
-Phase III
-
-<br>
-
-Ecosystem Development
-
-</div>
-
-<div class="card">
-
-Phase IV
-
-<br>
-
-Advanced Infrastructure
-
-</div>
-
-<div class="card">
-
-Phase V
-
-<br>
-
-Long-Term Research
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-<div class="socials">
-
-<a href="https://t.me/NexarEgypt">
-
-<i class="fa-brands fa-telegram"></i>
-
-</a>
-
-
-<a href="https://x.com/NexarToken">
-
-<i class="fa-brands fa-x-twitter"></i>
-
-</a>
-
-
-<a href="https://www.instagram.com/nexar.eg">
-
-<i class="fa-brands fa-instagram"></i>
-
-</a>
-
-
-<a href="https://www.facebook.com/share/18XgdmdWkY/">
-
-<i class="fa-brands fa-facebook"></i>
-
-</a>
-
-</div>
-
-<p>
-
-NEXAR (NXR)
-
-</p>
-
-<p>
-
-0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
-
-</p>
-
-</footer>
-
-</body>
-
-</html>
