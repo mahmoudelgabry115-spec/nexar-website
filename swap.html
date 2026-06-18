@@ -1,34 +1,83 @@
-<section class="swapSection"><div class="swapBox"><h2>Swap</h2><!-- FROM --><div class="tokenBox"><div class="tokenHeader"><span>From</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-</div><div class="tokenContent"><input
-id="fromAmount"
-type="number"
-placeholder="0.0">
+<title>NEXAR Swap</title>
 
-<div class="tokenSelect"><img id="fromLogo"
-src="assets/bnb.png">
+<link rel="stylesheet" href="style.css">
+</head>
 
-<select id="fromToken"><option value="BNB">BNB</option><option value="USDT">USDT</option><option value="ETH">ETH</option><option value="BTC">BTC</option></select></div></div></div><!-- ARROW --><div class="swapArrow">↓
+<body>
 
-</div><!-- TO --><div class="tokenBox"><div class="tokenHeader"><span>To</span>
+<canvas id="stars"></canvas>
 
-</div><div class="tokenContent"><input
-id="toAmount"
-readonly>
+<header class="header">
 
-<div class="tokenSelect"><img src="assets/logo.png"><span>NXR</span>
+<div class="brand">
+<img src="assets/logo.png" class="logo">
+<div>
+<h2>Swap</h2>
+<p>Instant Token Exchange</p>
+</div>
+</div>
 
-</div></div></div><div class="swapInfo"><p id="swapPrice">1 NXR = 0.0002 BNB
+<nav>
+<a href="index.html">Home</a>
+<a href="presale.html">Presale</a>
+<a href="market.html">Market</a>
+<a href="whitepaper.html">Whitepaper</a>
+<a href="about.html">About</a>
+</nav>
 
-</p><p>Slippage: 0.5%
+<button class="connectWallet">Connect Wallet</button>
 
-</p><p>Minimum Received:
-<span id="minimumReceived">
+</header>
 
-0
+<section class="hero">
+<h1>SWAP TOKENS</h1>
+<p>Convert crypto instantly (UI simulation)</p>
+</section>
 
-</span>NXR
+<section class="swapBox">
 
-</p></div><button class="swapBtn">SWAP
+<div class="card">
 
-</button></div></section>
+<!-- FROM -->
+<label>From</label>
+<input id="fromAmount" type="number" placeholder="0.0">
+
+<select id="fromToken">
+<option value="BNB">BNB</option>
+<option value="USDT">USDT</option>
+<option value="ETH">ETH</option>
+<option value="BTC">BTC</option>
+</select>
+
+<br><br>
+
+<!-- TO -->
+<label>To (NXR)</label>
+<input id="toAmount" readonly placeholder="0.0">
+
+<br><br>
+
+<button class="mainBtn" onclick="calculateSwap()">
+Calculate
+</button>
+
+</div>
+
+</section>
+
+<footer>
+<p>© NEXAR Swap</p>
+</footer>
+
+<script src="animation.js"></script>
+<script src="swap.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

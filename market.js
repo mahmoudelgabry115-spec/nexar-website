@@ -1,84 +1,73 @@
-const marketContainer =
-document.getElementById("marketContainer");
+const marketContainer = document.getElementById("marketContainer");
+const searchInput = document.getElementById("searchInput");
 
-const searchInput =
-document.getElementById("searchInput");
-
-let coins=[];
+let coins = [];
 
 async function loadMarket(){
 
 try{
 
-const response = await fetch(
-
-"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false"
-
+const res = await fetch(
+"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false"
 );
 
-coins = await response.json();
+coins = await res.json();
 
-renderMarket(coins);
+render(coins);
 
-}
-
-catch(error){
-
-console.log(error);
-
+}catch(err){
+console.log("API Error", err);
 }
 
 }
 
-function renderMarket(data){
+function render(data){
 
-marketContainer.innerHTML="";
+if(!marketContainer) return;
 
-data.forEach(coin=>{
+marketContainer.innerHTML = "";
 
-const color =
-coin.price_change_percentage_24h >=0
-?
-"#00ff99"
-:
-"#ff4d4d";
+data.forEach(coin => {
 
-marketContainer.innerHTML+=`
+let changeColor = coin.price_change_percentage_24h >= 0 ? "#00ff88" : "#ff4d4d";
 
-<div class="coinCard"><div class="coinLeft"><img src="${coin.image}"><div><h3>${coin.name}
+marketContainer.innerHTML += `
+<div class="coinCard">
+<div class="coinLeft">
+<img src="${coin.image}">
+<div>
+<h3>${coin.name}</h3>
+<p>${coin.symbol.toUpperCase()}</p>
+</div>
+</div>
 
-</h3><p>${coin.symbol.toUpperCase()}
-
-</p></div></div><div class="coinRight"><h3>$${coin.current_price}
-
-</h3><p style="color:${color}">${coin.price_change_percentage_24h.toFixed(2)}%
-
-</p></div></div>`;
+<div class="coinRight">
+<h3>$${coin.current_price}</h3>
+<p style="color:${changeColor}">
+${coin.price_change_percentage_24h?.toFixed(2)}%
+</p>
+</div>
+</div>
+`;
 
 });
 
 }
 
-searchInput.addEventListener("input",()=>{
+if(searchInput){
+searchInput.addEventListener("input", () => {
 
-const keyword =
-searchInput.value.toLowerCase();
+let val = searchInput.value.toLowerCase();
 
-const filtered =
-coins.filter(coin=>
-
-coin.name.toLowerCase().includes(keyword)
-
-||
-
-coin.symbol.toLowerCase().includes(keyword)
-
+let filtered = coins.filter(c =>
+c.name.toLowerCase().includes(val) ||
+c.symbol.toLowerCase().includes(val)
 );
 
-renderMarket(filtered);
+render(filtered);
 
 });
+}
 
 loadMarket();
-
-setInterval(loadMarket,10000);
+setInterval(loadMarket, 15000);

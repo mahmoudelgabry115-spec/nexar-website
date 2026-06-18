@@ -1,169 +1,413 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NEXAR Whitepaper
+<title>NEXAR Whitepaper</title>
 
-</title><link rel="stylesheet"
-href="style.css"></head><body><canvas id="stars"></canvas>
+<link rel="stylesheet" href="style.css">
 
-<header class="subHeader"><h1>NEXAR (NXR) Whitepaper
+<style>
 
-</h1><button
-onclick="window.location.href='index.html'">
+.paper{
+display:flex;
+justify-content:center;
+padding:60px 20px;
+}
 
-← Back Home
+.paperCard{
+width:1000px;
+max-width:95%;
 
-</button></header><div class="paperContainer"><section class="paperCard"><h2>1. Executive Summary
+background:rgba(10,10,10,.75);
+backdrop-filter:blur(20px);
 
-</h2><p>Nexar (NXR) is a digital asset built on the BNB Smart Chain with the objective of creating an efficient, secure, and scalable ecosystem for digital payments and future decentralized applications.
+border:1px solid rgba(212,175,55,.15);
 
-</p></section><section class="paperCard"><h2>2. Industry Overview
+padding:50px;
 
-</h2><p>Expensive transaction fees.
+border-radius:30px;
 
-Slow international transfers.
+box-shadow:
+0 0 40px rgba(212,175,55,.08);
 
-Limited accessibility.
+color:#e5e5e5;
+}
 
-Fragmented ecosystems.
+.paperCard h1{
+text-align:center;
+font-size:50px;
+color:#D4AF37;
+margin-bottom:10px;
+}
 
-Complexity in digital asset adoption.
+.subtitle{
+text-align:center;
+color:#999;
+margin-bottom:40px;
+font-size:18px;
+}
 
-</p></section><section class="paperCard"><h2>3. Vision
+.paperCard h2{
+color:#D4AF37;
+margin-top:40px;
+margin-bottom:15px;
+padding-bottom:10px;
+border-bottom:1px solid rgba(212,175,55,.15);
+}
 
-</h2><p>To establish Nexar as a globally recognized digital payment ecosystem and support future innovation in decentralized finance and digital commerce.
+.paperCard h3{
+color:#f0c85a;
+margin-top:20px;
+}
 
-</p></section><section class="paperCard"><h2>4. Mission
+.paperCard p,
+.paperCard li{
+line-height:1.9;
+color:#d6d6d6;
+}
 
-</h2><p>Enable low-cost financial transactions.
+.paperCard ul{
+padding-left:25px;
+}
 
-Increase accessibility to digital assets.
+.paperCard table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+margin-bottom:30px;
+}
 
-Promote financial inclusion.
+.paperCard th{
+background:rgba(212,175,55,.15);
+color:#D4AF37;
+}
 
-Build sustainable blockchain infrastructure.
+.paperCard td,
+.paperCard th{
+border:1px solid rgba(255,255,255,.08);
+padding:12px;
+}
 
-Foster community participation and transparency.
+.paperCard tr:hover{
+background:rgba(255,255,255,.03);
+}
 
-</p></section><section class="paperCard"><h2>5. Core Values
+</style>
 
-</h2><p>Security
+</head>
 
-Accessibility
+<body>
 
-Innovation
+<canvas id="stars"></canvas>
 
-Sustainability
+<header class="header">
 
-Community
+<div class="brand">
+<img src="assets/logo.png" class="logo">
 
-</p></section><section class="paperCard"><h2>6. Ecosystem Components
+<div>
+<h2>Whitepaper</h2>
+<p>NEXAR Network Documentation</p>
+</div>
 
-</h2><p>Digital Payments
+</div>
 
-Merchant Solutions
+<nav>
 
-Community Programs
+<a href="index.html">Home</a>
+<a href="presale.html">Presale</a>
+<a href="market.html">Market</a>
+<a href="swap.html">Swap</a>
+<a href="about.html">About</a>
 
-Developer Ecosystem
+</nav>
 
-Future Infrastructure
+<button class="connectWallet">
+Connect Wallet
+</button>
 
-</p></section><section class="paperCard"><h2>7. Token Utility
+</header>
 
-</h2><p>Payments
+<section class="hero">
 
-Liquidity
+<h1>WHITEPAPER</h1>
 
-Community Rewards
+<p>
+Official Documentation of NEXAR Network
+</p>
 
-Governance
+</section>
 
-Future Services
+<section class="paper">
 
-</p></section><section class="paperCard"><h2>8. Token Information
+<div class="paperCard">
 
-</h2><p>Name: Nexar
+<h1>NEXAR (NXR)</h1>
 
-Symbol: NXR
+<p class="subtitle">
+Empowering the Future of Digital Payments
+</p>
 
-Network: BNB Smart Chain
+<h2>1. Executive Summary</h2>
 
-Standard: BEP-20
+<p>
+Nexar (NXR) is a digital asset built on the BNB Smart Chain with the objective of creating an efficient, secure, and scalable ecosystem for digital payments and future decentralized applications.
+The project aims to deliver affordable financial transactions while building a foundation for long-term ecosystem growth and technological innovation.
+</p>
 
-Decimals: 18
+<h2>2. Industry Overview</h2>
 
-Maximum Supply: 500,000,000
+<ul>
+<li>Expensive transaction fees</li>
+<li>Slow international transfers</li>
+<li>Limited accessibility</li>
+<li>Fragmented ecosystems</li>
+<li>Complexity in digital asset adoption</li>
+</ul>
 
-</p></section><section class="paperCard"><h2>9. Tokenomics
+<p>
+Nexar seeks to simplify access to digital finance while maintaining efficiency and scalability.
+</p>
 
-</h2><p>Liquidity & Listings — 40%
+<h2>3. Vision</h2>
 
-Ecosystem Development — 20%
+<p>
+To establish Nexar as a globally recognized digital payment ecosystem and support future innovation in decentralized finance and digital commerce.
+</p>
 
-Marketing & Partnerships — 15%
+<h2>4. Mission</h2>
 
-Community Rewards — 15%
+<ul>
+<li>Enable low-cost financial transactions</li>
+<li>Increase accessibility to digital assets</li>
+<li>Promote financial inclusion</li>
+<li>Build sustainable blockchain infrastructure</li>
+<li>Foster community participation and transparency</li>
+</ul>
 
-Strategic Reserve — 10%
+<h2>5. Core Values</h2>
 
-</p></section><section class="paperCard"><h2>10. Security Philosophy
+<h3>Security</h3>
+<p>Prioritizing trust and transparency.</p>
 
-</h2><p>Transparent development.
+<h3>Accessibility</h3>
+<p>Making digital finance available to everyone.</p>
 
-Future third-party audits.
+<h3>Innovation</h3>
+<p>Continuously improving infrastructure and services.</p>
 
-Responsible treasury management.
+<h3>Sustainability</h3>
+<p>Supporting responsible ecosystem growth.</p>
 
-Long-term stability.
+<h3>Community</h3>
+<p>Encouraging long-term participation.</p>
 
-Community trust.
+<h2>6. Ecosystem Components</h2>
 
-</p></section><section class="paperCard"><h2>11. Governance Vision
+<ul>
+<li>Digital Payments</li>
+<li>Merchant Solutions</li>
+<li>Community Programs</li>
+<li>Developer Ecosystem</li>
+<li>Future Infrastructure</li>
+</ul>
 
-</h2><p>Community proposals.
+<h2>7. Token Utility</h2>
 
-Strategic voting.
+<ul>
+<li>Payments</li>
+<li>Ecosystem incentives</li>
+<li>Liquidity</li>
+<li>Community rewards</li>
+<li>Future Governance</li>
+<li>Future Services</li>
+</ul>
 
-Treasury allocation discussions.
+<h2>8. Token Information</h2>
 
-</p></section><section class="paperCard"><h2>12. Treasury Strategy
+<table>
 
-</h2><p>Development initiatives.
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
 
-Marketing activities.
+<tr>
+<td>Name</td>
+<td>Nexar</td>
+</tr>
 
-Strategic partnerships.
+<tr>
+<td>Symbol</td>
+<td>NXR</td>
+</tr>
 
-Long-term sustainability.
+<tr>
+<td>Network</td>
+<td>BNB Smart Chain</td>
+</tr>
 
-</p></section><section class="paperCard"><h2>13. Growth Strategy
+<tr>
+<td>Standard</td>
+<td>BEP-20</td>
+</tr>
 
-</h2><p>Phase I — Foundation
+<tr>
+<td>Decimals</td>
+<td>18</td>
+</tr>
 
-Phase II — Community Expansion
+<tr>
+<td>Maximum Supply</td>
+<td>500,000,000</td>
+</tr>
 
-Phase III — Ecosystem Development
+</table>
 
-Phase IV — Advanced Infrastructure
+<h2>9. Tokenomics</h2>
 
-Phase V — Long-Term Research
+<table>
 
-</p></section><section class="paperCard"><h2>14. Risk Disclosure
+<tr>
+<th>Allocation</th>
+<th>Percentage</th>
+</tr>
 
-</h2><p>Market volatility.
+<tr>
+<td>Liquidity & Exchange Listings</td>
+<td>40%</td>
+</tr>
 
-Regulatory changes.
+<tr>
+<td>Ecosystem Development</td>
+<td>20%</td>
+</tr>
 
-Technology challenges.
+<tr>
+<td>Marketing & Partnerships</td>
+<td>15%</td>
+</tr>
 
-Adoption uncertainty.
+<tr>
+<td>Community Rewards</td>
+<td>15%</td>
+</tr>
 
-</p></section><section class="paperCard"><h2>15. Conclusion
+<tr>
+<td>Strategic Reserve</td>
+<td>10%</td>
+</tr>
 
-</h2><p>Nexar seeks to build a sustainable ecosystem that combines accessibility, efficiency, and innovation while contributing to the future of decentralized finance and digital payments.
+</table>
 
-</p></section><div class="downloadBox"><button class="downloadBtn">Download PDF
+<h2>10. Security Philosophy</h2>
 
-</button></div></div><script src="animation.js"></script></body></html>
+<ul>
+<li>Transparent development</li>
+<li>Responsible treasury management</li>
+<li>Future third-party audits</li>
+<li>Long-term ecosystem stability</li>
+<li>Community trust</li>
+</ul>
+
+<h2>11. Governance Vision</h2>
+
+<ul>
+<li>Community proposals</li>
+<li>Strategic voting</li>
+<li>Ecosystem priorities</li>
+<li>Treasury discussions</li>
+</ul>
+
+<h2>12. Treasury Strategy</h2>
+
+<ul>
+<li>Development initiatives</li>
+<li>Ecosystem growth</li>
+<li>Marketing activities</li>
+<li>Strategic partnerships</li>
+<li>Long-term sustainability</li>
+</ul>
+
+<h2>13. Growth Strategy</h2>
+
+<h3>Phase I — Foundation</h3>
+<ul>
+<li>Token Launch</li>
+<li>Liquidity Establishment</li>
+<li>Wallet Compatibility</li>
+</ul>
+
+<h3>Phase II — Community Expansion</h3>
+<ul>
+<li>Website Launch</li>
+<li>Whitepaper Publication</li>
+<li>Brand Development</li>
+<li>Social Channels</li>
+</ul>
+
+<h3>Phase III — Ecosystem Development</h3>
+<ul>
+<li>Partnerships</li>
+<li>Merchant Adoption</li>
+<li>Community Programs</li>
+</ul>
+
+<h3>Phase IV — Advanced Infrastructure</h3>
+<ul>
+<li>Governance Research</li>
+<li>Developer Initiatives</li>
+<li>Additional Integrations</li>
+</ul>
+
+<h3>Phase V — Long-Term Research</h3>
+<ul>
+<li>Independent Blockchain Studies</li>
+<li>Validator Concepts</li>
+<li>Interoperability Exploration</li>
+</ul>
+
+<h2>14. Risk Disclosure</h2>
+
+<ul>
+<li>Market Volatility</li>
+<li>Regulatory Changes</li>
+<li>Technology Challenges</li>
+<li>Adoption Uncertainty</li>
+</ul>
+
+<p>
+Participants should conduct independent research and manage risk responsibly.
+</p>
+
+<h2>15. Conclusion</h2>
+
+<p>
+Nexar seeks to build a sustainable ecosystem that combines accessibility, efficiency, and innovation while contributing to the future of decentralized finance and digital payments.
+</p>
+
+<h2>Official Channels</h2>
+
+<ul>
+<li>X: https://x.com/NexarToken</li>
+<li>Telegram: https://t.me/NexarEgypt</li>
+<li>Facebook: https://www.facebook.com/share/18XgdmdWkY/</li>
+<li>Instagram: https://www.instagram.com/nexar.eg</li>
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 NEXAR Network. All Rights Reserved.</p>
+</footer>
+
+<script src="animation.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

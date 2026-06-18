@@ -1,7 +1,62 @@
-<input
-type="text"
-id="searchInput"
-placeholder="Search Coin..."
->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEXAR Market</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<header class="header">
+
+<div class="brand">
+<img src="assets/logo.png" class="logo">
+<div>
+<h2>Market</h2>
+<p>Live Crypto Prices</p>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="presale.html">Presale</a>
+<a href="swap.html">Swap</a>
+<a href="whitepaper.html">Whitepaper</a>
+<a href="about.html">About</a>
+</nav>
+
+<button class="connectWallet">Connect Wallet</button>
+
+</header>
+
+<section class="hero">
+
+<h1>LIVE MARKET</h1>
+<p>Real-time crypto prices powered by CoinGecko</p>
+
+</section>
+
+<section style="padding:20px 10%;">
+
+<input id="searchInput" placeholder="Search Coin..." />
 
 <div id="marketContainer"></div>
+
+</section>
+
+<footer>
+<p>© NEXAR Market</p>
+</footer>
+
+<script src="animation.js"></script>
+<script src="market.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

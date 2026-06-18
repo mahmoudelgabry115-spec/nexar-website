@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NEXAR Presale</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<header class="header">
+
+<div style="text-align:center;margin-top:20px;">
+<a href="index.html" style="color:#D4AF37;text-decoration:none;">
+← Back to Home
+</a>
+</div>
+
+<div class="brand">
+<img src="assets/logo.png" class="logo">
+<div>
+<h2>NEXAR Presale</h2>
+<p>Buy NXR Before Launch</p>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="market.html">Market</a>
+<a href="swap.html">Swap</a>
+<a href="whitepaper.html">Whitepaper</a>
+<a href="about.html">About</a>
+</nav>
+
+<button class="connectWallet">Connect Wallet</button>
+
+</header>
+
+<section class="hero">
+
+<h1>PRIVATE SALE</h1>
+<p>Buy NXR at early price before listing</p>
+
+</section>
+
+<section class="presaleBox">
+
+<div class="card">
+
+<h2>Buy NXR</h2>
+
+<p>Price: 1 NXR = 0.01 USDT</p>
+
+<p>Min: 100 NXR | Max: 10,000 NXR</p>
+
+<br>
+
+<input id="buyAmount" type="number" placeholder="Enter NXR amount">
+
+<br><br>
+
+<div class="calcBox">
+
+<p>You Pay: <span id="payValue">0</span> USDT</p>
+
+<p>You Receive: <span id="receiveValue">0</span> NXR</p>
+
+</div>
+
+<button onclick="buyToken()" class="mainBtn">
+Buy Now
+</button>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="card">
+<h3>Soft Cap</h3>
+<p>100,000 USDT</p>
+</div>
+
+<div class="card">
+<h3>Hard Cap</h3>
+<p>500,000 USDT</p>
+</div>
+
+<div class="card">
+<h3>Progress</h3>
+<p>Live Presale</p>
+</div>
+
+</section>
+
+<footer>
+<p>© NEXAR Network Presale</p>
+</footer>
+
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="web3.js"></script>
+<script src="presale.js"></script>
+
+</body>
+</html>

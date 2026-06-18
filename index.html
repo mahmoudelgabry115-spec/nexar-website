@@ -1,85 +1,144 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NEXAR Network</title><link rel="icon" href="assets/logo.png"><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet"></head><body><!-- Background --><canvas id="stars"></canvas>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- HEADER --><header class="header"><div class="brand"><img src="assets/logo.png" class="logo"><div class="brandText"><h2>NEXAR Network</h2><p>Empowering the Future of Digital Payments</p></div></div><nav><button class="navBtn active">
-🏠 Home
-</button><button class="navBtn">
-📈 Market
-</button><button class="navBtn">
-🔄 Swap
-</button><button class="navBtn">
-📄 Whitepaper
-</button><button class="navBtn">
-ℹ️ About
-</button></nav><button class="connectWallet">Connect Wallet
+<title>NEXAR Network</title>
 
-</button></header><!-- HERO --><section class="hero"><img src="assets/logo.png" class="heroLogo"><h1>NEXAR NETWORK</h1><h3>Empowering the Future of Digital Payments
+<link rel="stylesheet" href="style.css">
 
-</h3><button class="launchBtn">🚀 Launch App
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
-</button></section><!-- BUY BOX --><section class="buyBox"><h2>Buy NXR
+</head>
+<body>
 
-</h2><div class="inputBox"><div class="tokenSelect"><img src="assets/bnb.png"><span>BNB</span>
+<canvas id="stars"></canvas>
 
-</div><input type="number" placeholder="0.0"></div><div class="priceInfo">1 NXR = 0.0002 BNB
+<header class="header">
 
-</div><button class="buyBtn">BUY NXR
+<div class="brand">
 
-</button></section><!-- TOKEN INFO --><section class="tokenInfo"><div class="infoCard"><h3>Total Supply</h3>500,000,000 NXR
+<img src="assets/logo.png" class="logo">
 
-</div><div class="infoCard"><h3>Network</h3>BNB Smart Chain
+<div>
+<h2>NEXAR Network</h2>
+<p>Fast • Secure • Low Fees</p>
+</div>
 
-</div><div class="infoCard"><h3>Contract Address</h3>0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
+</div>
 
-</div></section><!-- SOCIAL --><footer>Telegram
+<nav>
 
-X
+<a href="index.html">Home</a>
 
-Facebook
+<a href="presale.html">Presale</a>
 
-Instagram
+<a href="market.html">Market</a>
 
-</footer><script src="animation.js"></script><script src="app.js"></script></body></html>
+<a href="swap.html">Swap</a>
 
-<footer class="footer"><div class="footerGrid"><!-- Brand --><div class="footerBox"><h2>NEXAR Network
+<a href="whitepaper.html">Whitepaper</a>
 
-</h2><p>Empowering the Future of Digital Payments
+<a href="about.html">About</a>
 
-</p></div><!-- Navigation --><div class="footerBox"><h3>Navigation
+</nav>
 
-</h3><a href="index.html">Home
+<button class="connectWallet">
+Connect Wallet
+</button>
 
-</a><a href="#market">Market
+</header>
 
-</a><a href="#swap">Swap
+<section class="hero">
 
-</a><a href="whitepaper.html">Whitepaper
+<img src="assets/logo.png" class="heroLogo">
 
-</a><a href="about.html">About
+<div id="loader">Loading NEXAR...</div>
 
-</a></div><!-- Social --><div class="footerBox"><h3>Social Media
+<h1>NEXAR NETWORK</h1>
 
-</h3><a href="https://x.com/NexarToken">𝕏 Twitter
+<p>
+Building the Future of Fast Digital Payments
+</p>
 
-</a><a href="https://t.me/NexarEgypt">Telegram
+<a href="presale.html" class="mainBtn">
+Launch Presale
+</a>
 
-</a><a href="https://www.facebook.com/share/18XgdmdWkY/">Facebook
+</section>
 
-</a><a href="https://www.instagram.com/nexar.eg">Instagram
+<section class="stats">
 
-</a></div><!-- Contract --><div class="footerBox"><h3>Smart Contract
+<div class="card">
+<h3>Total Supply</h3>
+<p>500,000,000 NXR</p>
+</div>
 
-</h3><p id="contractText">0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
+<div class="card">
+<h3>Network</h3>
+<p>BNB Smart Chain</p>
+</div>
 
-</p><button
-class="copyBtn"
-onclick="copyContract()">
+<div class="card">
+<h3>Symbol</h3>
+<p>NXR</p>
+</div>
 
-Copy Contract
+</section>
 
-</button></div></div><div class="copyright">© 2025 NEXAR Network
+<section class="contract">
 
-</div></footer>
+<h2>Official Contract</h2>
 
+<div class="contractBox">
+
+<span id="contractAddress">
+0x50503105BEC1D34A4Ba6E193486911bd9bA6F0e4
+</span>
+
+<button onclick="copyContract()">
+Copy
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 NEXAR Network</p>
+
+
+<footer class="socialFooter">
+
+
+<a href="https://t.me/NexarEgypt" target="_blank">
+<img src="assets/telegram.png" alt="Telegram">
+</a>
+
+<a href="https://x.com/NexarToken" target="_blank">
+<img src="assets/x.png" alt="X">
+</a>
+
+<a href="https://www.facebook.com/share/18XgdmdWkY/" target="_blank">
+<img src="assets/facebook.png" alt="Facebook">
+</a>
+
+<a href="https://www.instagram.com/nexar.eg?igsh=MWM0aGN2cjRkdXJ3cg==" target="_blank">
+<img src="assets/instagram.png" alt="Instagram">
+</a>
+
+</footer>
+</footer>
+
+</footer>
+
+</footer>
+
+<script src="animation.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,64 +1,29 @@
-const prices={
-
-BNB:0.0002,
-
-USDT:0.10,
-
-ETH:0.00003,
-
-BTC:0.000001
-
+const prices = {
+BNB: 0.0002,
+USDT: 0.01,
+ETH: 0.00003,
+BTC: 0.000001
 };
 
-const fromAmount =
-document.getElementById("fromAmount");
-
-const toAmount =
-document.getElementById("toAmount");
-
-const fromToken =
-document.getElementById("fromToken");
-
-const swapPrice =
-document.getElementById("swapPrice");
-
-const minimumReceived =
-document.getElementById("minimumReceived");
+const fromAmount = document.getElementById("fromAmount");
+const fromToken = document.getElementById("fromToken");
+const toAmount = document.getElementById("toAmount");
 
 function calculateSwap(){
 
-let amount =
-parseFloat(fromAmount.value);
+let amount = Number(fromAmount.value);
+let token = fromToken.value;
 
-let token =
-fromToken.value;
-
-if(isNaN(amount)){
-
-toAmount.value="";
-
+if(!amount || amount <= 0){
+toAmount.value = "";
 return;
-
 }
 
-let nxr = amount/prices[token];
+let nxr = amount / prices[token];
 
 toAmount.value = nxr.toFixed(2);
 
-minimumReceived.innerHTML =
-(nxr*0.995).toFixed(2);
-
-swapPrice.innerHTML =
-"1 NXR = "+prices[token]+" "+token;
-
 }
 
-fromAmount.addEventListener(
-"input",
-calculateSwap
-);
-
-fromToken.addEventListener(
-"change",
-calculateSwap
-);
+fromAmount.addEventListener("input", calculateSwap);
+fromToken.addEventListener("change", calculateSwap);
